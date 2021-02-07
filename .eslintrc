@@ -4,13 +4,16 @@
     "ecmaVersion": 2020,
     "sourceType": "module"
   },
-  "extends": [
+  "extends": [],
+  "plugins": [
     "eslint:recommended",
+    "react/recommended",
     "prettier/react",
-    "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended",
-    "prettier/@typescript-eslint",
-    "plugin:prettier/recommended"
+    "typescript-eslint/recommended",
+    "eslint-plugin-simple-sort",
+    "prettier/recommended",
+    "prettier/@typescript-eslint"
+
   ],
   "rules": {
     "no-unused-vars": "off",
