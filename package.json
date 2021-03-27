@@ -28,7 +28,9 @@
   },
   "dependencies": {
     "@svgr/webpack": "^5.5.0",
+    "csv-parse": "^4.15.3",
     "lodash": "^4.17.19",
+    "moment": "^2.29.1",
     "next": "^10.0.9",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
