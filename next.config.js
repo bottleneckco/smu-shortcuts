@@ -14,5 +14,6 @@ module.exports = {
 
   env: {
     SERVER_URL: process.env.SERVER_URL,
+    GA: process.env.GA,
   },
 };
