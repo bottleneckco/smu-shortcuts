@@ -1,5 +1,5 @@
 <p align="center" style="background-color: #FAFAFA;">
-    <img alt="smu-shortcut logo" src="./src/images/logo-nobg.png" width="100px">
+    <img alt="smu-shortcut logo" src="./public/images/logo-nobg.png" width="100px">
     <h1 align="center">SMU Shortcuts</h1>
 </p>
 
@@ -11,7 +11,7 @@
 ---
 
 <p align="center">
-  <img alt="smu-shortcut promotion-image" src="./src/images/promo-image.png">
+  <img alt="smu-shortcut promotion-image" src="./public/images/promo-image.png">
 </p>
 
 ---
