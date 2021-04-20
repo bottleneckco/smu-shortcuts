@@ -46,7 +46,7 @@ const Ticker: React.FC = () => {
     {
       title: 'News',
       content: 'Welcome to SMU Shortcuts!',
-    }
+    },
   ]);
   const [tickerIndex, setTickerIndex] = useState(0);
 
@@ -60,7 +60,7 @@ const Ticker: React.FC = () => {
         .then((data: any) => {
           tickerList.push({
             title: 'Occupancy Level',
-            content: `Li Ka Shing Library: ${data.lks.inside} / 1000`,
+            content: `Li Ka Shing Library: ${data.lks.inside} / 1150`,
           });
 
           tickerList.push({
@@ -107,6 +107,6 @@ const Ticker: React.FC = () => {
       <Message />
     </TickerWrapper>
   );
-}
+};
 
 export default Ticker;
