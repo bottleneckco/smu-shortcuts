@@ -31,14 +31,16 @@ const Image = styled.div`
 `;
 
 const Icon = styled.span`
-  font-size: 72px;
+  &&& {
+    font-size: 42px;
 
-  @media screen and (max-width: 1400px) {
-    font-size: 6vw;
-  }
+    @media screen and (max-width: 1400px) {
+      font-size: 3.5vw;
+    }
 
-  @media screen and (max-width: 720px) {
-    font-size: 20vw;
+    @media screen and (max-width: 720px) {
+      font-size: 12vw;
+    }
   }
 `;
 

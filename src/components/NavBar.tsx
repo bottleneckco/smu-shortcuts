@@ -9,7 +9,7 @@ const NavBarContainer = styled.div`
   display: flex;
 
   @media screen and (max-width: 720px) {
-    justify-content: center;
+    justify-content: space-evenly;
   }
 `;
 
@@ -25,6 +25,10 @@ const StyledLink = styled(NavLink)`
     text-decoration-thickness: 3px;
     text-decoration-color: rgba(43, 43, 43, 0.87);
     color: rgba(43, 43, 43, 0.87);
+  }
+
+  @media screen and (max-width: 720px) {
+    padding: 8px 24px;
   }
 `;
 
