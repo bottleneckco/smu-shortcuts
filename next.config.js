@@ -1,5 +1,10 @@
-module.exports = {
+const withPWA = require('next-pwa');
+
+module.exports = withPWA({
   target: 'serverless',
+  pwa: {
+    dest: 'dist',
+  },
 
   webpack(config) {
     config.module.rules.push({
@@ -16,4 +21,4 @@ module.exports = {
     SERVER_URL: process.env.SERVER_URL,
     GA: process.env.GA,
   },
-};
+});

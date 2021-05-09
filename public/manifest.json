@@ -1,0 +1,20 @@
+{
+  "name": "SMU Shortcuts",
+  "short_name": "SMU Shortcuts",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "description": "Quick access to your most use sites in SMU",
+  "ios": true,
+  "icons": [
+    {
+      "ios": "default",
+      "src": "/images/logo192.png",
+      "sizes": [192]
+    },
+    {
+      "src": "/images/logo512.png",
+      "sizes": [512]
+    }
+  ]
+}
