@@ -53,7 +53,9 @@ export const About: React.FC = () => {
           </li>
           <li>
             Developer? Add an issue or make a pull request on&nbsp;
-            <a href="https://github.com/bottleneckco/smu-shortcuts">Github</a>
+            <a href="https://github.com/fourthclasshonours/smu-shortcuts">
+              Github
+            </a>
           </li>
         </ul>
       </Container>

@@ -32,7 +32,7 @@ Run the following commands:
 
 ```bash
 # Clone the repo
-git clone https://github.com/bottleneckco/smu-shortcuts.git && cd smu-shortcuts
+git clone https://github.com/fourthclasshonours/smu-shortcuts.git && cd smu-shortcuts
 
 # Install dependencies
 yarn install
@@ -48,11 +48,11 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### 💾 Data
 
-The data used by SMU-Shortcuts is stored in [smu-scraper](https://github.com/bottleneckco/smu-scraper)
+The data used by SMU-Shortcuts is stored in [smu-scraper](https://github.com/fourthclasshonours/smu-scraper)
 
 ## 🙋 Contribute
 
-If you found a bug, or if you have an idea for this app, please [file an issue here](https://github.com/bottleneckco/smu-shortcuts/issues). We appreaciate your feedbacks and inputs.
+If you found a bug, or if you have an idea for this app, please [file an issue here](https://github.com/fourthclasshonours/smu-shortcuts/issues). We appreaciate your feedbacks and inputs.
 
 ## 📜 License
 

@@ -28,7 +28,7 @@ When you submit your code, your submissions will be under the same [MIT License]
 
 ## Report bugs using Github Issues
 
-We used Github issues to track public bugs Report a new bug by [opening a new issue](https://github.com/bottleneckco/smu-shortcuts/issues).
+We used Github issues to track public bugs Report a new bug by [opening a new issue](https://github.com/fourthclasshonours/smu-shortcuts/issues).
 
 ## Writing a Bug Report
 
@@ -50,4 +50,4 @@ Having a detailed bug reports help us replicate the issue on our side.
 
 ## License
 
-By contributing, you agree that your contributions will be under the MIT License owned by Bottleneck Co.
+By contributing, you agree that your contributions will be under the MIT License owned by FourthClassHonours.
