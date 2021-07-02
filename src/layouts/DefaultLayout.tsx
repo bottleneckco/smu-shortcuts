@@ -1,24 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
-import Header from '../components/Header';
 import NavBar from '../components/NavBar';
+import Header from '../components/Header';
 import SEO from '../components/SEO';
 
 const Wrapper = styled.div`
-  width: 1200px;
-  margin: 0 auto;
-  padding-bottom: 24px;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
 
-  @media (max-width: 1400px) {
-    width: 80%;
-  }
-
-  @media (max-width: 720px) {
-    width: 90%;
-  }
-
-  @media (max-width: 350px) {
-    width: 95%;
+  main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
   }
 `;
 
@@ -31,10 +26,13 @@ const DefaultLayout: React.FC<Props> = function (props) {
 
   return (
     <Wrapper>
-      <Header title={title} />
-      <NavBar />
       <SEO title={title} />
-      <main>{children}</main>
+      <NavBar />
+
+      <main>
+        <Header title={title} />
+        {children}
+      </main>
     </Wrapper>
   );
 };

@@ -14,8 +14,8 @@ export default class MyDocument extends Document {
     const { renderPage } = ctx;
 
     const sheet = new ServerStyleSheet();
-    const page = renderPage((App) => (props) =>
-      sheet.collectStyles(<App {...props} />)
+    const page = renderPage(
+      (App) => (props) => sheet.collectStyles(<App {...props} />)
     );
 
     const styleTags = sheet.getStyleElement();
@@ -40,7 +40,7 @@ export default class MyDocument extends Document {
             <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
             <link rel="icon" type="image/png" href="/images/favicon.png" />
             <link
-              href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
+              href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
               rel="stylesheet"
             />
             <link rel="manifest" href="/manifest.json" />

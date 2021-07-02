@@ -8,21 +8,6 @@ body {
 }
 
 html {
+  margin: 0;
   background-color: #F9F9F9;
 }
-
-/* 
- * @media (prefers-color-scheme: dark) {
- *   html {
- *     background-color: #131415;
- *   }
-
- *   .header h1{
- *     color: white;
- *   }
-
- *   body {
- *     color: white;
- *   }
- * }
- */
