@@ -1,18 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
-import NavLink from './NavLink';
-import Icon from './Icon';
+import NavLink from './components/NavLink';
+import Icon from '../Icon';
 
 const Wrapper = styled.div`
   height: 100%;
   width: 80px;
   padding-top: 16px;
-  box-sizing: border-box;
   background-color: ${(props) => props.theme.sidebarBackground};
-  backdrop-filter: blur(15px);
 `;
 
-const NavContainer = styled.div`
+const NavContaner = styled.div`
   display: grid;
   justify-content: center;
   grid-template-columns: auto;
@@ -20,8 +18,8 @@ const NavContainer = styled.div`
 `;
 
 const StyledLink = styled(NavLink)`
-  height: 48px;
-  width: 48px;
+  height: 56px;
+  width: 56px;
   text-decoration: none;
   color: ${(props) => props.theme.sidebarIcon};
   background-color: ${(props) => props.theme.sidebarIconBackground};
@@ -31,6 +29,10 @@ const StyledLink = styled(NavLink)`
   align-items: center;
   border-radius: 16px;
 
+  .material-icons-round {
+    font-size: 36px;
+  }
+
   &:hover {
     filter: brightness(1.5);
   }
@@ -39,14 +41,14 @@ const StyledLink = styled(NavLink)`
 const NavBar: React.FC = () => {
   return (
     <Wrapper>
-      <NavContainer>
+      <NavContaner>
         <StyledLink href="/">
           <Icon name="home" />
         </StyledLink>
         <StyledLink href="/">
           <Icon name="settings" />
         </StyledLink>
-      </NavContainer>
+      </NavContaner>
     </Wrapper>
   );
 };
