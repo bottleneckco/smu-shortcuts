@@ -13,6 +13,7 @@ const App: React.FC<AppProps> = function (props) {
   return (
     <ThemeProvider theme={theme}>
       <DataWrapper>
+        <GlobalStyle />
         <Analytics />
         <Component {...pageProps} />
       </DataWrapper>
