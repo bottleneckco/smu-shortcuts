@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { CardTemplate, TodayWidget } from '../components/Card/';
+import { TodayCard, CapacityCard } from '../components/Card/';
+import { CardTemplate } from '../components/Card/styled';
 
 import DefaultLayout from '../layouts/DefaultLayout';
 
@@ -14,17 +15,21 @@ const Wrapper = styled.div`
 `;
 
 const WidgetContainer = styled.div`
-  height: 100%;
+  display: flex;
+  flex-direction: column;
 `;
+
+const AppContainer = styled(CardTemplate)``;
 
 export const Home: React.FC = () => {
   return (
     <DefaultLayout title="Home">
       <Wrapper>
         <WidgetContainer>
-          <TodayWidget />
+          <TodayCard />
+          <CapacityCard />
         </WidgetContainer>
-        <CardTemplate>Kek</CardTemplate>
+        <AppContainer>Kek</AppContainer>
       </Wrapper>
     </DefaultLayout>
   );

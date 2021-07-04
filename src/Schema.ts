@@ -33,3 +33,9 @@ export interface CalendarEventProps {
   startDate: number;
   endDate: number;
 }
+
+export interface LibraryOccupancy {
+  title: string;
+  occupancy: number;
+  maxOccupancy: number;
+}

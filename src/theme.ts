@@ -6,7 +6,7 @@ const theme = {
   sidebarIcon: '#262626',
 
   cardBackground: '#FAFAFA',
-  highlight: '#2B77EA',
+  primary: '#2B77EA',
 
   textColor: '#1E1E1E',
   subtitleColor: 'rgba(0, 0, 0, 0.54)',
