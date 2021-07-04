@@ -5,7 +5,7 @@ import { useDataContext } from '../../../../../contexts/DataContext';
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  padding-bottom: 24px;
+  padding-bottom: 16px;
   color: ${(props) => props.theme.textColor};
 
   h1 {
@@ -33,7 +33,7 @@ const DaysWrapper = styled.div`
   padding-bottom: 8px;
 `;
 
-const CurrentEvent: React.FC = () => {
+const TodayEvent: React.FC = () => {
   const { currentEvent } = useDataContext();
   if (!currentEvent) {
     return null;
@@ -58,4 +58,4 @@ const CurrentEvent: React.FC = () => {
   );
 };
 
-export default CurrentEvent;
+export default TodayEvent;

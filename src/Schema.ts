@@ -26,3 +26,10 @@ export interface CurrentEventProps {
   isBreak: boolean;
   isLastDay: boolean;
 }
+
+export interface CalendarEventProps {
+  title: string;
+  timeString: string;
+  startDate: number;
+  endDate: number;
+}
