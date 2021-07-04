@@ -129,7 +129,6 @@ const CalendarEvents: React.FC = () => {
     return sortBy(calendarEvents, 'startDate', ['asc']);
   }, [importantDates, today]);
 
-  console.log(todayEvents);
   const hiddenEventsCount = todayEvents.length > 3 ? todayEvents.length - 3 : 0;
 
   return (

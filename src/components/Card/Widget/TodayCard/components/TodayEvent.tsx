@@ -22,7 +22,7 @@ const Wrapper = styled.div`
   }
 
   .highlight {
-    color: ${(props) => props.theme.highlight};
+    color: ${(props) => props.theme.primary};
   }
 `;
 
