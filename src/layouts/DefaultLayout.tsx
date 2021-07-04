@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import NavBar from '../components/NavBar';
+import NavBar from '../components/Navigation';
 import Header from '../components/Header';
 import SEO from '../components/SEO';
 
