@@ -51,7 +51,8 @@ export const DataWrapper: React.FC = (props) => {
   // Get Important Dates
   useEffect(() => {
     const getImportantDates = async () => {
-      axios(`${process.env.SERVER_URL}` + '/important_dates.json')
+      // axios(`${process.env.SERVER_URL}` + '/important_dates.json')
+      axios('/temp/important_dates.json')
         .then((response) => {
           const dates: ImportantDateProps[] = response.data;
           setImportantDates(dates);
