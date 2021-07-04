@@ -8,8 +8,11 @@ const theme = {
   cardBackground: '#FAFAFA',
   primary: '#2B77EA',
 
-  textColor: '#1E1E1E',
+  textColor: '#1b1b1b',
   subtitleColor: 'rgba(0, 0, 0, 0.54)',
+
+  appLibraryBackground: '#f9f9f9',
+  appLibraryIcon: '#1b1b1b',
 
   calendarRed: '#D32F2F',
   calendarBlue: '#17ACBE',

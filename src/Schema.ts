@@ -39,3 +39,17 @@ export interface LibraryOccupancy {
   occupancy: number;
   maxOccupancy: number;
 }
+
+export interface AppLibraryShortcutsProps {
+  id: string;
+  title: string;
+  logo: string;
+  type: string;
+  link: string;
+}
+
+export interface AppLibraryProps {
+  uid: string;
+  title: string;
+  shortcuts: AppLibraryShortcutsProps[];
+}
