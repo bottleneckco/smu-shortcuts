@@ -44,12 +44,5 @@ export const APP_BOOKMARK_DEFAULT = {
       type: 'url',
       link: 'https://boss.intranet.smu.edu.sg',
     },
-    {
-      id: 'boss_export',
-      title: 'BOSS Timetable Export',
-      logo: 'file_download',
-      type: 'internal',
-      link: '#boss-export',
-    },
   ],
 };
