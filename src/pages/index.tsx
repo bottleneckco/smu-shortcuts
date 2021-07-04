@@ -6,7 +6,7 @@ import DefaultLayout from '../layouts/DefaultLayout';
 
 const Wrapper = styled.div`
   box-sizing: border-box;
-  height: 100%;
+  height: calc(100vh - 64px);
   padding: 16px;
   display: grid;
   grid-template-columns: 1fr 2fr;

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import { CardTemplate } from '../../styled';
 import CapacityRow from './components/CapacityRow';
-import { LibraryOccupancy } from '../../../../Schema';
+import { LibraryOccupancyProps } from '../../../../Schema';
 
 const Wrapper = styled(CardTemplate)`
   margin-top: 1em;
@@ -34,7 +34,7 @@ const MAX_OCCUPANCY_LKS = 1150;
 const MAX_OCCUPANCY_KGC = 300;
 
 const CapacityCard: React.FC = () => {
-  const [occupancy, setOccupancy] = useState<LibraryOccupancy[]>([]);
+  const [occupancy, setOccupancy] = useState<LibraryOccupancyProps[]>([]);
 
   useEffect(() => {
     const getOccupancy = async () => {

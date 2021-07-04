@@ -34,7 +34,7 @@ export interface CalendarEventProps {
   endDate: number;
 }
 
-export interface LibraryOccupancy {
+export interface LibraryOccupancyProps {
   title: string;
   occupancy: number;
   maxOccupancy: number;

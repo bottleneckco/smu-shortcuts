@@ -2,11 +2,11 @@ const theme = {
   background: '#FAFAFA',
 
   sidebarBackground: '#E2E4E856',
-  sidebarIconBackground: '#FAFAFA',
-  sidebarIcon: '#262626',
+  sidebarIconBackground: '#f9f9f9',
+  sidebarIcon: '#1b1b1b',
 
-  cardBackground: '#FAFAFA',
   primary: '#2B77EA',
+  cardBackground: '#FAFAFA',
 
   textColor: '#1b1b1b',
   subtitleColor: 'rgba(0, 0, 0, 0.54)',

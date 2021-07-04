@@ -15,14 +15,14 @@ const Wrapper = styled.div`
 const SubTitle = styled.h2`
   margin: 0;
   font-size: 1.15em;
-  font-weight: 600;
+  font-weight: 700;
   color: ${(props) => props.theme.subtitleColor};
   padding-bottom: 4px;
 `;
 
 const CalendarRow = styled.div`
   background-color: ${(props) => props.theme.calendarRed};
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 6px 12px;
   margin-top: 4px;
 

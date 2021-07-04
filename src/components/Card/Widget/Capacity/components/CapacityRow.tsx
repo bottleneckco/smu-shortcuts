@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { LibraryOccupancy } from '../../../../../Schema';
+import { LibraryOccupancyProps } from '../../../../../Schema';
 
 const Wrapper = styled.div`
   margin-top: 8px;
@@ -41,7 +41,7 @@ const ProgressBar = styled.div<{ percentage: number }>`
 `;
 
 interface Props {
-  library: LibraryOccupancy;
+  library: LibraryOccupancyProps;
 }
 
 const CapacityRow: React.FC<Props> = (props) => {
