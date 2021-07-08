@@ -21,7 +21,7 @@ const Title = styled.div`
   }
 
   span {
-    color: ${(props) => props.theme.subtitleColor};
+    color: ${(props) => props.theme.text600};
   }
 `;
 
@@ -47,10 +47,8 @@ interface Props {
 const CapacityRow: React.FC<Props> = (props) => {
   const { library } = props;
   const percentage = Math.round(
-    (library.occupancy / library.maxOccupancy) * 100,
-    0
+    (library.occupancy / library.maxOccupancy) * 100
   );
-  console.log(percentage);
 
   return (
     <Wrapper>

@@ -16,7 +16,7 @@ const Wrapper = styled.div`
     margin: 0;
     font-size: 1.15em;
     font-weight: 700;
-    color: ${(props) => props.theme.subtitleColor};
+    color: ${(props) => props.theme.text600};
     padding-bottom: 4px;
   }
 

@@ -8,6 +8,7 @@ const Wrapper = styled.div`
   width: 80px;
   padding-top: 16px;
   background-color: ${(props) => props.theme.sidebarBackground};
+  box-sizing: border-box;
   backdrop-filter: blur(15px);
 `;
 

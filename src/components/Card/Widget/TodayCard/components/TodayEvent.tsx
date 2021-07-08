@@ -6,7 +6,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding-bottom: 16px;
-  color: ${(props) => props.theme.textColor};
+  color: ${(props) => props.theme.text900};
 
   h1 {
     margin: 0;
