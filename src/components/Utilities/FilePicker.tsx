@@ -1,5 +1,6 @@
-import React, { useCallback, useState, useMemo } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import styled from 'styled-components';
+
 import Icon from '../Icon';
 
 interface Props {

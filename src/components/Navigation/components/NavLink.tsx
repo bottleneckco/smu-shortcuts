@@ -1,5 +1,5 @@
-import React from 'react';
 import Link from 'next/link';
+import React from 'react';
 import styled from 'styled-components';
 
 // This creates a custom component that wraps an <a> tag

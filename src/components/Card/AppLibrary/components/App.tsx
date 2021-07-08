@@ -1,6 +1,6 @@
+import { useRouter } from 'next/router';
 import React, { useCallback } from 'react';
 import styled from 'styled-components';
-import { useRouter } from 'next/router';
 
 import { AppLibraryShortcutsProps } from '../../../../Schema';
 import Icon from '../../../Icon';

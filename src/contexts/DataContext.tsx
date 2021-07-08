@@ -4,17 +4,17 @@ import React, {
   createContext,
   useContext,
   useEffect,
-  useState,
   useMemo,
+  useState,
 } from 'react';
-import {
-  SchoolYearPropsV1,
-  SchoolTermPropsV1,
-  ImportantDateProps,
-  CurrentEventProps,
-  AppLibraryProps,
-} from '../Schema';
 
+import {
+  AppLibraryProps,
+  CurrentEventProps,
+  ImportantDateProps,
+  SchoolTermPropsV1,
+  SchoolYearPropsV1,
+} from '../Schema';
 import { APP_BOOKMARK_DEFAULT } from '../utils/appBookmarkDefaults';
 
 interface ContextProps {

@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import NavLink from './components/NavLink';
+
 import Icon from '../Icon';
+import NavLink from './components/NavLink';
 
 const Wrapper = styled.div`
   height: 100%;

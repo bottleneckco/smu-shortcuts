@@ -1,10 +1,9 @@
 import React from 'react';
-
-import Section from './components/Section';
-import { useDataContext } from '../../../contexts/DataContext';
 import styled from 'styled-components';
 
+import { useDataContext } from '../../../contexts/DataContext';
 import { CardTemplate } from '../styled';
+import Section from './components/Section';
 
 const Wrapper = styled(CardTemplate)`
   overflow-y: auto;
@@ -19,6 +18,7 @@ const AppLibrary: React.FC = () => {
         isSorted={false}
         title={appBookmarks.title}
       />
+      <Padding />
       {appLibrary.map((library) => (
         <Section
           key={library.uid}

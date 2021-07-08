@@ -1,16 +1,16 @@
-import React, { useMemo, useEffect, useState } from 'react';
-import styled from 'styled-components';
-import { useRouter } from 'next/router';
 import parse from 'csv-parse/lib/sync';
-import { capitalize, uniqBy, isEqual } from 'lodash';
+import { capitalize, isEqual, uniqBy } from 'lodash';
 import moment from 'moment';
-import { PrimaryBtn, DisabledPrimaryBtn } from '../styled';
-
-import { ModalTemplate } from '../components';
-import { FilePicker } from '../../Utilities';
-import { ModalOverlay } from '../styled';
+import { useRouter } from 'next/router';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useCallback } from 'react';
-import { parseMeetings, generateICal } from './util';
+import styled from 'styled-components';
+
+import { FilePicker } from '../../Utilities';
+import { ModalTemplate } from '../components';
+import { DisabledPrimaryBtn, PrimaryBtn } from '../styled';
+import { ModalOverlay } from '../styled';
+import { generateICal, parseMeetings } from './util';
 import { Event } from './util/generateICal';
 
 const CSVHeader = [

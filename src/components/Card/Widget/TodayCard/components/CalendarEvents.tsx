@@ -1,11 +1,11 @@
-import React from 'react';
-import styled from 'styled-components';
-import moment from 'moment-timezone';
 import sortBy from 'lodash/sortBy';
+import moment from 'moment-timezone';
+import React from 'react';
+import { useMemo } from 'react';
+import styled from 'styled-components';
 
 import { useDataContext } from '../../../../../contexts/DataContext';
 import { CalendarEventProps } from '../../../../../Schema';
-import { useMemo } from 'react';
 
 const Wrapper = styled.div`
   display: flex;

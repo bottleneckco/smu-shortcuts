@@ -1,11 +1,11 @@
 import { sortBy } from 'lodash';
+import { useRouter } from 'next/router';
 import React, { useMemo } from 'react';
 import styled from 'styled-components';
-import { useRouter } from 'next/router';
 
-import { ModalOverlay } from '../styled';
+import { Welcome_Guide_Links } from '../../../utils/guidesLinks';
 import { ModalTemplate } from '../components';
-import { Welcome_Guide_Links } from './links';
+import { ModalOverlay } from '../styled';
 
 const Wrapper = styled.div`
   ul {

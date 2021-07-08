@@ -1,4 +1,5 @@
 import { Moment } from 'moment';
+
 import tzSingapore from './tzSingapore';
 
 export interface Event {

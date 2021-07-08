@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { CardTemplate } from '../../styled';
-import TodayEvent from './components/TodayEvent';
 import CalendarEvent from './components/CalendarEvents';
+import TodayEvent from './components/TodayEvent';
 
 const Wrapper = styled(CardTemplate)``;
 

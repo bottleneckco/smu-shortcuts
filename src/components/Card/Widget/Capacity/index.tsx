@@ -2,9 +2,9 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
+import { LibraryOccupancyProps } from '../../../../Schema';
 import { CardTemplate } from '../../styled';
 import CapacityRow from './components/CapacityRow';
-import { LibraryOccupancyProps } from '../../../../Schema';
 
 const Wrapper = styled(CardTemplate)`
   margin-top: 1em;

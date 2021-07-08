@@ -13,9 +13,12 @@
     "plugin:prettier/recommended",
     "plugin:react-hooks/recommended"
   ],
+  "plugins": ["simple-import-sort"],
   "rules": {
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": "error",
-    "react/prop-types": "off"
+    "react/prop-types": "off",
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error"
   }
 }

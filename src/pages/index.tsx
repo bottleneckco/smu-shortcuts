@@ -1,11 +1,11 @@
+import { isArray } from 'lodash';
+import { useRouter } from 'next/router';
 import React from 'react';
 import styled from 'styled-components';
-import { TodayCard, CapacityCard, AppLibrary } from '../components/Card/';
-import { BOSSTimetable, SchoolGuide, WelcomeGuide } from '../components/Modal';
 
-import { useRouter } from 'next/router';
+import { AppLibrary, CapacityCard, TodayCard } from '../components/Card/';
+import { BOSSTimetable, SchoolGuide, WelcomeGuide } from '../components/Modal';
 import DefaultLayout from '../layouts/DefaultLayout';
-import { isArray } from 'lodash';
 
 const Wrapper = styled.div`
   box-sizing: border-box;
