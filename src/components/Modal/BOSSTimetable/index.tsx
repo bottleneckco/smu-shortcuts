@@ -231,7 +231,7 @@ const BOSSTimetable: React.FC = () => {
 
   return (
     <>
-      <ModalTemplate title={'Boss Timetable Export'}>
+      <ModalTemplate title="Boss Timetable Export">
         <Wrapper>
           <FilePicker handleFiles={handleFile} fileType=".csv" />
           {errorFile && <p className="error">Invalid file</p>}

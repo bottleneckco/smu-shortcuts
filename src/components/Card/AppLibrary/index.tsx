@@ -9,6 +9,10 @@ const Wrapper = styled(CardTemplate)`
   overflow-y: auto;
 `;
 
+const Padding = styled.div`
+  padding: 32px;
+`;
+
 const AppLibrary: React.FC = () => {
   const { appBookmarks, appLibrary } = useDataContext();
   return (
