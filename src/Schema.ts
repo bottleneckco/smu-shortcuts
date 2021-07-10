@@ -53,3 +53,7 @@ export interface AppLibraryProps {
   title: string;
   shortcuts: AppLibraryShortcutsProps[];
 }
+
+export interface CalendarProps {
+  [key: string]: CalendarEventProps[];
+}

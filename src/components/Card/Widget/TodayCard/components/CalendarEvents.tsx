@@ -1,11 +1,8 @@
-import sortBy from 'lodash/sortBy';
 import moment from 'moment-timezone';
-import React from 'react';
-import { useMemo } from 'react';
+import React, { useMemo } from 'react';
 import styled from 'styled-components';
 
 import { useDataContext } from '../../../../../contexts/DataContext';
-import { CalendarEventProps } from '../../../../../Schema';
 
 const Wrapper = styled.div`
   display: flex;
@@ -49,91 +46,31 @@ const MoreEvents = styled.p`
 `;
 
 const CalendarEvents: React.FC = () => {
-  const { importantDates } = useDataContext();
+  const { calendarEvents } = useDataContext();
+  const today = moment();
 
-  const today = useMemo(() => {
-    const now = moment();
-    const todayMidnight = moment(now).set({
+  const todayEvents = useMemo(() => {
+    // get currently happening events
+    const midnight = moment(today).set({
       hour: 0,
       minute: 0,
       second: 0,
       millisecond: 0,
     });
+    const events = calendarEvents[`${midnight.unix()}`];
 
-    return {
-      now,
-      todayMidnight,
-      nextMidnight: moment(todayMidnight).add(1, 'day'),
-    };
-  }, []);
+    if (!events) {
+      return [];
+    }
 
-  const todayEvents = useMemo(() => {
-    // get currently happening events
-    const events = importantDates.filter((date) => {
-      const startTime = moment.unix(date.startTime);
-      const endTime = moment.unix(date.endTime);
-      return today.now.isBetween(startTime, endTime, undefined, '[)');
-    });
-    // get events type
-    const calendarEvents: CalendarEventProps[] = events.map((date) => {
-      const startTime = moment.unix(date.startTime);
-      const endTime = moment.unix(date.endTime);
-      const startTimeFormat = startTime.minute() === 0 ? 'ha' : 'h:mma';
-      const endTimeFormat = endTime.minute() === 0 ? 'ha' : 'h:mma';
-      const title = date.summary;
-      let timeString = '';
-
-      switch (true) {
-        // all-day event
-        case today.todayMidnight.isSameOrAfter(startTime) &&
-          today.nextMidnight.isSameOrBefore(endTime):
-          return {
-            title,
-            timeString: 'All day',
-            startDate: today.todayMidnight.unix(),
-            endDate: today.nextMidnight.unix(),
-          };
-        // 0000 to < 2359
-        case today.todayMidnight.isSameOrAfter(startTime) &&
-          today.nextMidnight.isAfter(endTime):
-          timeString = `12am - ${endTime.format(endTimeFormat)}`;
-          return {
-            title,
-            timeString,
-            startDate: today.todayMidnight.unix(),
-            endDate: date.endTime,
-          };
-        // > 0000 to 2359
-        case today.todayMidnight.isBefore(startTime) &&
-          today.nextMidnight.isSameOrBefore(endTime):
-          timeString = `${startTime.format(startTimeFormat)} - 11:59pm`;
-          return {
-            title,
-            timeString,
-            startDate: date.startTime,
-            endDate: today.nextMidnight.unix(),
-          };
-        // between 0000 to 2359
-        default:
-          return {
-            title,
-            timeString: `${startTime.format(
-              startTimeFormat
-            )} - ${endTime.format(endTimeFormat)}`,
-            startDate: date.startTime,
-            endDate: date.endTime,
-          };
-      }
-    });
-    // sorted events as sorted by start date
-    return sortBy(calendarEvents, 'startDate', ['asc']);
-  }, [importantDates, today]);
+    return events;
+  }, [calendarEvents, today]);
 
   const hiddenEventsCount = todayEvents.length > 3 ? todayEvents.length - 3 : 0;
 
   return (
     <Wrapper>
-      <SubTitle>{today.now.format('dddd, D MMMM')}</SubTitle>
+      <SubTitle>{today.format('dddd, D MMMM')}</SubTitle>
       {todayEvents.slice(0, 3).map((event, index) => (
         <CalendarRow key={index}>
           <h3>{event.title}</h3>

@@ -1,5 +1,4 @@
 import axios from 'axios';
-import moment from 'moment-timezone';
 import React, {
   createContext,
   useContext,
@@ -10,16 +9,17 @@ import React, {
 
 import {
   AppLibraryProps,
+  CalendarProps,
   CurrentEventProps,
   ImportantDateProps,
-  SchoolTermPropsV1,
   SchoolYearPropsV1,
 } from '../Schema';
 import { APP_BOOKMARK_DEFAULT } from '../utils/appBookmarkDefaults';
+import { getCurrentEvent, sortEventsByDate } from './utils';
 
 interface ContextProps {
   schoolTerms: SchoolYearPropsV1[];
-  importantDates: ImportantDateProps[];
+  calendarEvents: CalendarProps;
   currentEvent: CurrentEventProps | null;
   appBookmarks: AppLibraryProps;
   appLibrary: AppLibraryProps[];
@@ -29,8 +29,8 @@ const DataContext = createContext<ContextProps>({
   appBookmarks: APP_BOOKMARK_DEFAULT,
   appLibrary: [],
   schoolTerms: [],
-  importantDates: [],
   currentEvent: null,
+  calendarEvents: {},
 });
 
 export const DataWrapper: React.FC = (props) => {
@@ -84,77 +84,26 @@ export const DataWrapper: React.FC = (props) => {
 
   /** Get today details */
   const currentEvent: CurrentEventProps | null = useMemo(() => {
-    if (schoolTerms.length === 0) {
-      return null;
-    }
-    const today = moment();
-    // look for current event in schoolTerms
-    for (const year of schoolTerms) {
-      for (const [key, value] of Object.entries(year)) {
-        const term: SchoolTermPropsV1 = value;
-        const termStart = moment.tz(
-          `${term.startdate} 00:00`,
-          'D MMM YYYY',
-          'Asia/Singapore'
-        );
-        const termEnd = moment.tz(
-          `${term.enddate} 23:59`,
-          'D MMM YYYY',
-          'Asia/Singapore'
-        );
-
-        // look for the current term and search for the current event
-        if (termStart.isSameOrBefore(today) && termEnd.isAfter(today)) {
-          const week = term.weeks.find((week) => {
-            const weekStart = moment.tz(
-              `${week.startdate} 00:00`,
-              'D MMM YYYY',
-              'Asia/Singapore'
-            );
-            const weekEnd = moment.tz(
-              `${week.enddate} 00:00`,
-              'D MMM YYYY',
-              'Asia/Singapore'
-            );
-            return weekStart.isSameOrBefore(today) && weekEnd.isAfter(today);
-          });
-
-          if (week) {
-            const weekStart = moment.tz(
-              `${week.startdate} 00:00`,
-              'D MMM YYYY',
-              'Asia/Singapore'
-            );
-            const weekEnd = moment.tz(
-              `${week.enddate} 00:00`,
-              'D MMM YYYY',
-              'Asia/Singapore'
-            );
-            const title = week.name;
-            const days = today.diff(weekStart, 'days');
-            const daysToEnd = weekEnd.diff(today, 'days');
-            return {
-              title,
-              days: days + 1,
-              isBreak: title === 'Vacation' || title === 'Recess',
-              isLastDay: daysToEnd === 0,
-            };
-          }
-        }
-      }
-    }
-    return null;
+    return getCurrentEvent(schoolTerms);
   }, [schoolTerms]);
+
+  /** Split Important Dates by date */
+  const calendarEvents: CalendarProps = useMemo(() => {
+    if (importantDates.length === 0) {
+      return {};
+    }
+    return sortEventsByDate(importantDates);
+  }, [importantDates]);
 
   const sharedState = useMemo(
     () => ({
       appLibrary,
       appBookmarks,
       schoolTerms,
-      importantDates,
+      calendarEvents,
       currentEvent,
     }),
-    [appBookmarks, appLibrary, currentEvent, importantDates, schoolTerms]
+    [appBookmarks, appLibrary, calendarEvents, currentEvent, schoolTerms]
   );
 
   return (
