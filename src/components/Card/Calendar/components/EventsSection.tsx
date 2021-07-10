@@ -1,4 +1,3 @@
-import { orderBy, toNumber } from 'lodash';
 import moment from 'moment-timezone';
 import React, { useMemo } from 'react';
 import styled from 'styled-components';

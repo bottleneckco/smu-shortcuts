@@ -38,7 +38,89 @@ const Icon: React.FC<Props> = (props) => {
           </svg>
         );
       case 'smushortcut':
-        return null;
+        return (
+          <svg
+            width={width}
+            height={width}
+            viewBox="0 0 24 24"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              id="favicon"
+              stroke="none"
+              strokeWidth="1"
+              fill="none"
+              fillRule="evenodd"
+            >
+              <g id="logo" transform="translate(4.000000, 4.000000)">
+                <rect
+                  id="color"
+                  fill="#E3A311"
+                  x="2"
+                  y="2"
+                  width="15"
+                  height="15"
+                ></rect>
+                <rect
+                  id="border"
+                  stroke="#151C55"
+                  x="0.5"
+                  y="0.5"
+                  width="15"
+                  height="15"
+                ></rect>
+                <g
+                  id="letter"
+                  transform="translate(1.000000, 1.000000)"
+                  fill="#000000"
+                  fontFamily="Lato-Heavy, Lato"
+                  fontSize="5"
+                  fontWeight="600"
+                >
+                  <text id="S">
+                    <tspan x="2.1225" y="5.5">
+                      S
+                    </tspan>
+                  </text>
+                  <text id="U">
+                    <tspan x="1.63625" y="12.5">
+                      U
+                    </tspan>
+                  </text>
+                  <text id="M">
+                    <tspan x="8.12125" y="5.5">
+                      M
+                    </tspan>
+                  </text>
+                </g>
+              </g>
+              <g id="shortcut" transform="translate(12.000000, 13.000000)">
+                <rect
+                  id="Rectangle"
+                  fill="#009DD9"
+                  x="0"
+                  y="0"
+                  width="10"
+                  height="10"
+                  rx="1"
+                ></rect>
+                <path
+                  d="M5.05013368,1.5 L7.5,1.5 C8.05228475,1.5 8.5,1.94771525 8.5,2.5 L8.5,7.5 C8.5,8.05228475 8.05228475,8.5 7.5,8.5 L2.5,8.5 C1.94771525,8.5 1.5,8.05228475 1.5,7.5 L1.5,5 L1.5,5"
+                  id="Rectangle"
+                  stroke="#151C55"
+                  transform="translate(5.000000, 5.000000) rotate(90.000000) translate(-5.000000, -5.000000) "
+                ></path>
+                <path
+                  d="M3.5,6.5 L8.0254834,1.9745166 M8.5,1.5 L6.5,1.5 M8.5,1.5 L8.5,3.5"
+                  id="arrow"
+                  stroke="#FFFFFF"
+                  strokeLinecap="square"
+                ></path>
+              </g>
+            </g>
+          </svg>
+        );
       default:
         return <span className="material-icons-round">{name}</span>;
     }

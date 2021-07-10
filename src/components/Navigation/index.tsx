@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -32,19 +33,30 @@ const StyledLink = styled(NavLink)`
   align-items: center;
   border-radius: 16px;
 
+  &.active {
+    box-shadow: ${(props) => props.theme.primary} 0px 0px 0px 3px;
+    transform: scale(1);
+  }
+
   &:hover {
-    filter: brightness(1.5);
+    box-shadow: ${(props) => props.theme.text300}AA 0px 0px 0px 3px;
+    transform: scale(1);
   }
 `;
 
 const NavBar: React.FC = () => {
+  const router = useRouter();
+  const path = router.asPath;
   return (
     <Wrapper>
       <NavContaner>
-        <StyledLink href="/">
-          <Icon name="home" />
+        <StyledLink href="/" className={path === '/' ? 'active' : ''}>
+          <Icon name="smushortcut" width={32} height={32} />
         </StyledLink>
-        <StyledLink href="/calendar">
+        <StyledLink
+          href="/calendar"
+          className={path === '/calendar' ? 'active' : ''}
+        >
           <Icon name="today" />
         </StyledLink>
       </NavContaner>

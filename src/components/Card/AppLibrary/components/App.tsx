@@ -11,7 +11,7 @@ interface Props {
 
 const Wrapper = styled.a`
   padding: 0 16px;
-  height: 64px;
+  height: 72px;
   background-color: ${(props) => props.theme.appLibraryBackground};
   border-radius: 16px;
   display: flex;
@@ -24,7 +24,7 @@ const Wrapper = styled.a`
     margin: 0;
     padding-left: 8px;
     font-weight: 600;
-    font-size: 1.1em;
+    font-size: 1.05em;
   }
 
   .material-icons-round {

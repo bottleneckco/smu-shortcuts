@@ -14,8 +14,8 @@ interface Props {
 const Wrapper = styled.div`
   h2 {
     margin: 0;
-    font-size: 1.15em;
-    font-weight: 700;
+    font-size: 1.05em;
+    font-weight: 600;
     color: ${(props) => props.theme.text600};
     padding-bottom: 4px;
   }
@@ -24,16 +24,11 @@ const Wrapper = styled.div`
 `;
 
 const AppWrapper = styled.div`
+  box-sizing: border-box;
   padding-top: 12px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  display: grid;
   gap: 12px;
-
-  @supports not (gap: 12px) with (display: flex) {
-    margin-bottom: 12px;
-    margin-right: 12px;
-  }
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 `;
 
 const Section: React.FC<Props> = (props) => {
