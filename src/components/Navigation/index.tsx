@@ -44,8 +44,8 @@ const NavBar: React.FC = () => {
         <StyledLink href="/">
           <Icon name="home" />
         </StyledLink>
-        <StyledLink href="/">
-          <Icon name="settings" />
+        <StyledLink href="/calendar">
+          <Icon name="today" />
         </StyledLink>
       </NavContaner>
     </Wrapper>

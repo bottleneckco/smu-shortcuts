@@ -15,7 +15,7 @@ const theme = {
   appLibraryBackground: '#f9f9f9',
   appLibraryIcon: '#333333',
 
-  calendarRed: '#D32F2F',
+  calendarRed: '#D74037',
   calendarBlue: '#17ACBE',
   calendarGreen: '#43A047',
 };

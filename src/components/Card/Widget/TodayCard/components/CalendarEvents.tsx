@@ -11,8 +11,8 @@ const Wrapper = styled.div`
 
 const SubTitle = styled.h2`
   margin: 0;
-  font-size: 1.15em;
-  font-weight: 700;
+  font-size: 1.05em;
+  font-weight: 600;
   color: ${(props) => props.theme.text600};
   padding-bottom: 4px;
 `;
@@ -36,6 +36,7 @@ const CalendarRow = styled.div`
     -webkit-line-clamp: 1;
     display: -webkit-box;
     overflow: hidden;
+    color: #ffffff;
   }
 `;
 
@@ -58,12 +59,7 @@ const CalendarEvents: React.FC = () => {
       millisecond: 0,
     });
     const events = calendarEvents[`${midnight.unix()}`];
-
-    if (!events) {
-      return [];
-    }
-
-    return events;
+    return !events ? [] : events;
   }, [calendarEvents, today]);
 
   const hiddenEventsCount = todayEvents.length > 3 ? todayEvents.length - 3 : 0;
