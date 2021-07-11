@@ -15,7 +15,7 @@ const Wrapper = styled(CardTemplate)`
 `;
 
 const Padding = styled.div`
-  padding: 32px;
+  padding: 2vh;
 `;
 
 const AppLibrary: React.FC = () => {

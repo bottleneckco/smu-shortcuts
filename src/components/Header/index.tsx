@@ -11,6 +11,7 @@ const Wrapper = styled.header`
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
+  color: ${(props) => props.theme.text900};
 
   h1 {
     font-size: 1.75em;
@@ -33,10 +34,11 @@ const MenuWrapper = styled.button`
   background-color: unset;
   text-align: center;
   display: flex;
-  margin-top: 2px;
+  margin-top: 6px;
   margin-right: 16px;
   padding: 0;
   display: none;
+  color: ${(props) => props.theme.text900};
 
   @media screen and (max-width: ${(props) => props.theme.mobileSize}) {
     display: unset;

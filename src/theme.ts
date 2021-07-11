@@ -1,6 +1,10 @@
 const theme = {
   background: '#FAFAFA',
 
+  blurBackgroundBackwardsCompatible: 'rgba(240, 240, 240, 0.9)',
+  blurBackground: 'rgba(255, 255, 255, 0.5)',
+  blur: 'blur(2em)',
+
   sidebarBackground: '#E2E4E856',
   sidebarIconBackground: '#f9f9f9',
   sidebarIcon: '#1b1b1b',

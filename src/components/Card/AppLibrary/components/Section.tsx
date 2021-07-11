@@ -1,4 +1,4 @@
-import { sortBy } from 'lodash';
+import orderBy from 'lodash/orderBy';
 import React, { useMemo } from 'react';
 import styled from 'styled-components';
 
@@ -35,7 +35,10 @@ const Section: React.FC<Props> = (props) => {
   const { title, shortcuts, isSorted = true } = props;
 
   const shortcutsSort = useMemo(
-    () => (!isSorted ? shortcuts : sortBy(shortcuts, 'title')),
+    () =>
+      !isSorted
+        ? shortcuts
+        : orderBy(shortcuts, [(app) => app.title.toLowerCase()], ['asc']),
     [isSorted, shortcuts]
   );
 

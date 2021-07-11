@@ -30,7 +30,7 @@ interface Props {
 const DefaultLayout: React.FC<Props> = function (props) {
   const { title = 'SMU Shortcuts', children } = props;
   const [showNav, setShowNav] = useState(false);
-  const isMobile = useMediaQuery('(max-width: 820px');
+  const isMobile = useMediaQuery('screen and (max-width: 820px)');
 
   useEffect(() => {
     if (isMobile) {
@@ -51,6 +51,8 @@ const DefaultLayout: React.FC<Props> = function (props) {
     }
     setShowNav(false);
   }, [isMobile]);
+
+  console.log(isMobile, showNav);
 
   return (
     <Wrapper>

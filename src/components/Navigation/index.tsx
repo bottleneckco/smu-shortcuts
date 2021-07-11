@@ -9,13 +9,13 @@ const Wrapper = styled.div`
   height: 100%;
   width: 80px;
   padding-top: 16px;
-  background-color: ${(props) => props.theme.sidebarBackground};
   box-sizing: border-box;
-  background: rgba(240, 240, 240, 0.9);
+  background-color: ${(props) => props.theme.sidebarBackground};
+  background: ${(props) => props.theme.blurBackgroundBackwardsCompatible};
 
-  @supports (backdrop-filter: blur(2em)) {
-    background: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(2em);
+  @supports (backdrop-filter: ${(props) => props.theme.blur}) {
+    background: ${(props) => props.theme.blurBackground};
+    backdrop-filter: ${(props) => props.theme.blur};
   }
 
   @media screen and (max-width: ${(props) => props.theme.mobileSize}) {
