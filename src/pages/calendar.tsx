@@ -10,7 +10,13 @@ const Wrapper = styled.div`
   padding: 16px;
   display: flex;
   // grid-template-columns: 1fr 2fr;
-  column-gap: 16px;
+  // column-gap: 16px;
+
+  @media screen and (max-width: ${(props) => props.theme.mobileSize}) {
+    height: calc(100vh - 56px);
+    flex-direction: column;
+    overflow-y: auto;
+  }
 `;
 
 export const Calendar: React.FC = () => {

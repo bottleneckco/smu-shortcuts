@@ -1,7 +1,13 @@
+import { useMediaQuery } from 'beautiful-react-hooks';
 import React from 'react';
+import { useEffect } from 'react';
+import { useCallback } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
-import NavBar from '../components/Navigation';
+
 import Header from '../components/Header';
+import { ModalOverlay } from '../components/Modal/styled';
+import NavBar from '../components/Navigation';
 import SEO from '../components/SEO';
 
 const Wrapper = styled.div`
@@ -23,16 +29,42 @@ interface Props {
 
 const DefaultLayout: React.FC<Props> = function (props) {
   const { title = 'SMU Shortcuts', children } = props;
+  const [showNav, setShowNav] = useState(false);
+  const isMobile = useMediaQuery('(max-width: 820px');
+
+  useEffect(() => {
+    if (isMobile) {
+      setShowNav(false);
+    }
+  }, [isMobile]);
+
+  const handleShowNavBar = useCallback(() => {
+    if (!isMobile) {
+      return;
+    }
+    setShowNav(true);
+  }, [isMobile]);
+
+  const handleHideNavBar = useCallback(() => {
+    if (!isMobile) {
+      return;
+    }
+    setShowNav(false);
+  }, [isMobile]);
 
   return (
     <Wrapper>
       <SEO title={title} />
-      <NavBar />
-
+      {!isMobile ? (
+        <NavBar hideNavigation={handleHideNavBar} />
+      ) : (
+        showNav && <NavBar hideNavigation={handleHideNavBar} />
+      )}
       <main>
-        <Header title={title} />
+        <Header title={title} showNavigation={handleShowNavBar} />
         {children}
       </main>
+      {isMobile && showNav && <ModalOverlay onClick={handleHideNavBar} />}
     </Wrapper>
   );
 };

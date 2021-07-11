@@ -14,6 +14,13 @@ const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 2fr;
   column-gap: 16px;
+
+  @media screen and (max-width: ${(props) => props.theme.mobileSize}) {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    height: calc(100vh - 56px);
+  }
 `;
 
 const WidgetContainer = styled.div`

@@ -18,6 +18,8 @@ const theme = {
   calendarRed: '#D74037',
   calendarBlue: '#17ACBE',
   calendarGreen: '#43A047',
+
+  mobileSize: '820px',
 };
 
 export default theme;

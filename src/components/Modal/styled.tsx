@@ -33,6 +33,11 @@ export const Modal = styled.div`
     padding-bottom: 16px;
     font-weight: 600;
   }
+
+  @media screen and (max-width: ${(props) => props.theme.mobileSize}) {
+    min-height: 250px;
+    width: 90%;
+  }
 `;
 
 export const PrimaryBtn = styled.a`

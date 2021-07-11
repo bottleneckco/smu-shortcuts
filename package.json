@@ -30,6 +30,7 @@
   "dependencies": {
     "@svgr/webpack": "^5.5.0",
     "axios": "^0.21.1",
+    "beautiful-react-hooks": "^0.35.0",
     "csv-parse": "^4.15.3",
     "lodash": "^4.17.19",
     "moment-timezone": "^0.5.33",

@@ -21,6 +21,13 @@ const Wrapper = styled.div`
     color: ${(props) => props.theme.primary};
     font-weight: 600;
   }
+
+  @media screen and (max-width: ${(props) => props.theme.mobileSize}) {
+    font-size: 1.05em;
+    li {
+      padding: 6px 0;
+    }
+  }
 `;
 
 const StudyGuide: React.FC = () => {

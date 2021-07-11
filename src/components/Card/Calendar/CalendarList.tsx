@@ -10,6 +10,12 @@ const Wrapper = styled(CardTemplate)`
   width: 100%;
   padding: 24px 32px;
   overflow-y: auto;
+
+  @media screen and (max-width: ${(props) => props.theme.mobileSize}) {
+    padding: 16px;
+    height: unset;
+    overflow-y: unset;
+  }
 `;
 
 const CalendarList: React.FC = () => {

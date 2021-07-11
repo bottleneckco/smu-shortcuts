@@ -11,10 +11,21 @@ const Wrapper = styled.div`
   padding-top: 16px;
   background-color: ${(props) => props.theme.sidebarBackground};
   box-sizing: border-box;
-  backdrop-filter: blur(15px);
+  background: rgba(240, 240, 240, 0.9);
+
+  @supports (backdrop-filter: blur(2em)) {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(2em);
+  }
+
+  @media screen and (max-width: ${(props) => props.theme.mobileSize}) {
+    position: absolute;
+    z-index: 6;
+    width: 92px;
+  }
 `;
 
-const NavContaner = styled.div`
+const NavContainer = styled.div`
   display: grid;
   justify-content: center;
   grid-template-columns: auto;
@@ -44,22 +55,33 @@ const StyledLink = styled(NavLink)`
   }
 `;
 
-const NavBar: React.FC = () => {
+interface Props {
+  hideNavigation?: () => void;
+}
+
+const NavBar: React.FC<Props> = (props) => {
+  const { hideNavigation } = props;
   const router = useRouter();
   const path = router.asPath;
+
   return (
     <Wrapper>
-      <NavContaner>
-        <StyledLink href="/" className={path === '/' ? 'active' : ''}>
-          <Icon name="smushortcut" width={32} height={32} />
-        </StyledLink>
-        <StyledLink
-          href="/calendar"
-          className={path === '/calendar' ? 'active' : ''}
-        >
-          <Icon name="today" />
-        </StyledLink>
-      </NavContaner>
+      <NavContainer>
+        <div onClick={hideNavigation}>
+          <StyledLink href="/" className={path === '/' ? 'active' : ''}>
+            <Icon name="smushortcut" width={30} height={30} />
+          </StyledLink>
+        </div>
+
+        <div onClick={hideNavigation}>
+          <StyledLink
+            href="/calendar"
+            className={path === '/calendar' ? 'active' : ''}
+          >
+            <Icon name="today" />
+          </StyledLink>
+        </div>
+      </NavContainer>
     </Wrapper>
   );
 };

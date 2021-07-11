@@ -36,6 +36,10 @@ const Wrapper = styled.a`
     background-color: ${(props) => props.theme.primary}27;
     color: ${(props) => props.theme.primary};
   }
+
+  @media screen and (max-width: ${(props) => props.theme.mobileSize}) {
+    font-size: 0.95em;
+  }
 `;
 
 const App: React.FC<Props> = (props) => {

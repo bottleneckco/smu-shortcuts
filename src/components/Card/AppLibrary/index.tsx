@@ -7,6 +7,11 @@ import Section from './components/Section';
 
 const Wrapper = styled(CardTemplate)`
   overflow-y: auto;
+
+  @media screen and (max-width: ${(props) => props.theme.mobileSize}) {
+    margin-top: 16px;
+    overflow-y: unset;
+  }
 `;
 
 const Padding = styled.div`

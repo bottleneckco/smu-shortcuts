@@ -28,7 +28,7 @@ const AppWrapper = styled.div`
   padding-top: 12px;
   display: grid;
   gap: 12px;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 `;
 
 const Section: React.FC<Props> = (props) => {
