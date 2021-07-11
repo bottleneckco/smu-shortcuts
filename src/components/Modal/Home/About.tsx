@@ -6,6 +6,12 @@ import { ModalTemplate } from '../components';
 import { ModalOverlay } from '../styled';
 
 const Wrapper = styled.div`
+  h3,
+  p,
+  li,
+  ul {
+    color: ${(props) => props.theme.text600};
+  }
   h3 {
     margin: 0;
     margin-top: 16px;
@@ -26,7 +32,7 @@ const Wrapper = styled.div`
   }
 
   a {
-    color: ${(props) => props.theme.primary};
+    color: ${(props) => props.theme.primary.blue};
   }
 `;
 

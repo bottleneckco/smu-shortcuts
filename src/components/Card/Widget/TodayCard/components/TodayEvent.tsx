@@ -23,7 +23,7 @@ const Wrapper = styled.div`
   }
 
   .highlight {
-    color: ${(props) => props.theme.primary};
+    color: ${(props) => props.theme.primary.blue};
   }
 `;
 

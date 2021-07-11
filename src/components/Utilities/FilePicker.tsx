@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   label {
     display: inline-block;
     cursor: pointer;
-    background-color: #dddddd;
+    background-color: ${(props) => props.theme.icon.background};
     border-radius: 8px;
     width: 50%;
     max-width: 450px;

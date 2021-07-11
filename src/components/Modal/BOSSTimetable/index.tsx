@@ -68,7 +68,7 @@ const Wrapper = styled.div`
     margin-top: 8px;
     font-size: 12px;
     font-weight: 600;
-    color: #e6180b;
+    color: ${(props) => props.theme.textError};
   }
 `;
 

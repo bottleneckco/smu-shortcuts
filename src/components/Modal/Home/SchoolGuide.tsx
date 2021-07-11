@@ -18,7 +18,7 @@ const Wrapper = styled.div`
   }
 
   a {
-    color: ${(props) => props.theme.primary};
+    color: ${(props) => props.theme.primary.blue};
     font-weight: 600;
   }
 

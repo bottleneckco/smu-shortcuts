@@ -12,8 +12,7 @@ const GlobalStyle = createGlobalStyle`
 
   html {
     margin: 0;
-    background-image: 
-      linear-gradient(0deg, rgba(0,0,0,0.1), rgba(0,0,0,0.1)),
+    background-image: ${(props) => props.theme.background.gradient},
       url(/images/wallpapers/wallpaper-1.jpg);
     background-repeat: no-repeat;
     background-size: cover;

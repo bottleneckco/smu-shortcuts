@@ -21,7 +21,7 @@ const Color = styled.div<{ color: string }>`
   width: 16px;
   height: 16px;
   border-radius: 4px;
-  background-color: ${(props) => props.theme.calendarRed};
+  background-color: ${(props) => props.theme.calendar.red};
   margin-right: 8px;
 `;
 

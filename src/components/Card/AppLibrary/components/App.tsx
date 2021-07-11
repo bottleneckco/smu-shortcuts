@@ -12,12 +12,12 @@ interface Props {
 const Wrapper = styled.a`
   padding: 0 16px;
   height: 72px;
-  background-color: ${(props) => props.theme.appLibraryBackground};
+  background-color: ${(props) => props.theme.icon.background};
   border-radius: 16px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  color: ${(props) => props.theme.appLibraryIcon};
+  color: ${(props) => props.theme.icon.color};
   cursor: pointer;
 
   p {
@@ -33,8 +33,8 @@ const Wrapper = styled.a`
   }
 
   :hover {
-    background-color: ${(props) => props.theme.primary}27;
-    color: ${(props) => props.theme.primary};
+    background-color: ${(props) => props.theme.primary.blue}56;
+    color: ${(props) => props.theme.primary.blue};
   }
 
   @media screen and (max-width: ${(props) => props.theme.mobileSize}) {

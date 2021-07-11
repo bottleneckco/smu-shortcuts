@@ -35,7 +35,7 @@ const SubTitle = styled.h2`
 `;
 
 const CalendarRow = styled.div`
-  background-color: ${(props) => props.theme.calendarRed};
+  background-color: ${(props) => props.theme.calendar.red};
   border-radius: 12px;
   padding: 6px 12px;
   margin-top: 4px;

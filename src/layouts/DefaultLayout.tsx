@@ -9,6 +9,7 @@ import Header from '../components/Header';
 import { ModalOverlay } from '../components/Modal/styled';
 import NavBar from '../components/Navigation';
 import SEO from '../components/SEO';
+import { useDarkMode } from '../contexts/ThemeContext';
 
 const Wrapper = styled.div`
   width: 100vw;
@@ -31,6 +32,7 @@ const DefaultLayout: React.FC<Props> = function (props) {
   const { title = 'SMU Shortcuts', children } = props;
   const [showNav, setShowNav] = useState(false);
   const isMobile = useMediaQuery('screen and (max-width: 820px)');
+  const { componentMounted } = useDarkMode();
 
   useEffect(() => {
     if (isMobile) {
@@ -52,7 +54,9 @@ const DefaultLayout: React.FC<Props> = function (props) {
     setShowNav(false);
   }, [isMobile]);
 
-  console.log(isMobile, showNav);
+  if (!componentMounted) {
+    return <div />;
+  }
 
   return (
     <Wrapper>

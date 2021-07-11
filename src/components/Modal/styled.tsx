@@ -7,14 +7,14 @@ export const ModalOverlay = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #000000dd;
+  background-color: ${(props) => props.theme.card.overlay};
 `;
 
 export const Modal = styled.div`
   position: fixed;
   display: flex;
   flex-direction: column;
-  background: #ffffff;
+  background: ${(props) => props.theme.card.background};
   width: 80%;
   min-height: 200px;
   max-height: 90%;
@@ -26,6 +26,7 @@ export const Modal = styled.div`
   overflow-y: auto;
   z-index: 6;
   box-sizing: border-box;
+  color: ${(props) => props.theme.text900};
 
   h1 {
     margin: 0;
@@ -45,15 +46,15 @@ export const PrimaryBtn = styled.a`
   text-align: center;
   font-weight: 500;
   font-size: 1em;
-  color: ${(props) => props.theme.primary};
+  color: ${(props) => props.theme.primary.blue};
   cursor: pointer;
   padding: 12px 16px;
-  border: 2px solid ${(props) => props.theme.primary}AA;
+  border: 2px solid ${(props) => props.theme.primary.blue}AA;
   border-radius: 6px;
   text-decoration: none;
 
   :hover {
-    background-color: ${(props) => props.theme.primary}26;
+    background-color: ${(props) => props.theme.primary.blue}26;
   }
 
   &:disabled {

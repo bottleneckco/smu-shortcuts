@@ -21,6 +21,7 @@ const Title = styled.div`
   }
 
   span {
+    padding-left: 8px;
     color: ${(props) => props.theme.text600};
   }
 `;
@@ -29,14 +30,14 @@ const ProgressBar = styled.div<{ percentage: number }>`
   margin-top: 8px;
   width: 100%;
   height: 8px;
-  background-color: ${(props) => props.theme.primary}42;
+  background-color: ${(props) => props.theme.primary.blue}42;
   border-radius: 4px;
 
   .filled {
     border-radius: 4px;
     height: 100%;
     width: ${(props) => props.percentage}%;
-    background-color: ${(props) => props.theme.primary};
+    background-color: ${(props) => props.theme.primary.blue};
   }
 `;
 

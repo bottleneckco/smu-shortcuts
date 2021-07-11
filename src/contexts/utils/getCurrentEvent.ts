@@ -1,9 +1,13 @@
 import moment from 'moment-timezone';
 
-import { CurrentEventProps, SchoolTermPropsV1 } from '../../Schema';
+import {
+  CurrentEventProps,
+  SchoolTermPropsV1,
+  SchoolYearPropsV1,
+} from '../../Schema';
 
 export default function getCurrentEvent(
-  schoolTerms: SchoolTermPropsV1[]
+  schoolTerms: SchoolYearPropsV1[]
 ): CurrentEventProps | null {
   if (schoolTerms.length === 0) {
     return null;

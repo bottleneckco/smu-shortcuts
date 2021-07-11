@@ -111,6 +111,6 @@ export const DataWrapper: React.FC = (props) => {
   );
 };
 
-export const useDataContext = () => {
+export const useDataContext = (): ContextProps => {
   return useContext(DataContext);
 };
