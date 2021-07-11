@@ -148,6 +148,13 @@
           "logo": "instagram",
           "type": "url",
           "link": "https://www.instagram.com/sgsmusa/"
+        },
+        {
+          "id": "about_us",
+          "title": "About Us",
+          "logo": "info",
+          "type": "internal",
+          "link": "#about"
         }
       ]
     },

@@ -4,7 +4,12 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { AppLibrary, CapacityCard, TodayCard } from '../components/Card/';
-import { BOSSTimetable, SchoolGuide, WelcomeGuide } from '../components/Modal';
+import {
+  About,
+  BOSSTimetable,
+  SchoolGuide,
+  WelcomeGuide,
+} from '../components/Modal';
 import DefaultLayout from '../layouts/DefaultLayout';
 
 const Wrapper = styled.div`
@@ -34,6 +39,7 @@ export const Home: React.FC = () => {
   const isExportModal = isArray(path) && path[0] === '#boss-export';
   const isWelcomeGuide = isArray(path) && path[0] === '#welcome-guide';
   const isSchoolGuide = isArray(path) && path[0] === '#school-guide';
+  const isAbout = isArray(path) && path[0] === '#about';
 
   return (
     <DefaultLayout title="Home">
@@ -47,6 +53,7 @@ export const Home: React.FC = () => {
       {isExportModal && <BOSSTimetable />}
       {isWelcomeGuide && <WelcomeGuide />}
       {isSchoolGuide && <SchoolGuide />}
+      {isAbout && <About />}
     </DefaultLayout>
   );
 };
