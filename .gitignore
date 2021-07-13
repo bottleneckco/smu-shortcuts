@@ -96,6 +96,7 @@ dist/
 buildCache.json
 
 .env.local
+/public/temp
 
 # next-pwa
 **/public/workbox-*.js

@@ -1,73 +1,51 @@
 import moment from 'moment-timezone';
 
-import {
-  CurrentEventProps,
-  SchoolTermPropsV1,
-  SchoolYearPropsV1,
-} from '../../Schema';
+import { CurrentEventProps, SchoolYearProps } from '../../Schema';
 
 export default function getCurrentEvent(
-  schoolTerms: SchoolYearPropsV1[]
+  years: SchoolYearProps[]
 ): CurrentEventProps | null {
-  if (schoolTerms.length === 0) {
+  if (years.length === 0) {
     return null;
   }
 
   const today = moment();
-  // look for current event in schoolTerms
-  for (const year of schoolTerms) {
-    for (const [key, value] of Object.entries(year)) {
-      const term: SchoolTermPropsV1 = value;
-      const termStart = moment.tz(
-        `${term.startdate} 00:00`,
-        'D MMM YYYY',
-        'Asia/Singapore'
-      );
-      const termEnd = moment.tz(
-        `${term.enddate} 23:59`,
-        'D MMM YYYY',
-        'Asia/Singapore'
-      );
+  const allowedTerms = ['term_1', 'term_2'];
 
-      // look for the current term and search for the current event
-      if (termStart.isSameOrBefore(today) && termEnd.isAfter(today)) {
-        const week = term.weeks.find((week) => {
-          const weekStart = moment.tz(
-            `${week.startdate} 00:00`,
-            'D MMM YYYY',
-            'Asia/Singapore'
-          );
-          const weekEnd = moment.tz(
-            `${week.enddate} 00:00`,
-            'D MMM YYYY',
-            'Asia/Singapore'
-          );
-          return weekStart.isSameOrBefore(today) && weekEnd.isAfter(today);
-        });
+  for (const year of years) {
+    for (const term of year.terms) {
+      // check if term is part of the allowed terms
+      if (!allowedTerms.includes(term.type)) {
+        // console.log('not allowed');
+        continue;
+      }
 
-        if (week) {
-          const weekStart = moment.tz(
-            `${week.startdate} 00:00`,
-            'D MMM YYYY',
-            'Asia/Singapore'
-          );
-          const weekEnd = moment.tz(
-            `${week.enddate} 00:00`,
-            'D MMM YYYY',
-            'Asia/Singapore'
-          );
-          const title = week.name;
-          const days = today.diff(weekStart, 'days');
-          const daysToEnd = weekEnd.diff(today, 'days');
+      for (const period of term.periods) {
+        // check if current date is within the period dates
+        const startDate = moment.tz(
+          period.date_start,
+          'DD-MM-YYYY',
+          'Asia/Singapore'
+        );
+        const endDate = moment.tz(
+          period.date_end,
+          'DD-MM-YYYY',
+          'Asia/Singapore'
+        );
+
+        // date is between the period
+        if (today.isBetween(startDate, endDate, undefined, '[)')) {
           return {
-            title,
-            days: days + 1,
-            isBreak: title === 'Vacation' || title === 'Recess',
-            isLastDay: daysToEnd === 0,
+            type: period.type,
+            date_start: startDate.unix(),
+            date_end: endDate.unix(),
           };
         }
+        // console.log('end of period', period.type);
       }
+      // console.log('end of term', term.label);
     }
+    // console.log('end of year', year.label);
   }
   return null;
 }

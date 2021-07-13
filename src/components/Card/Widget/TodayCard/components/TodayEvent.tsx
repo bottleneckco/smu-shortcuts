@@ -1,4 +1,5 @@
-import React from 'react';
+import moment from 'moment-timezone';
+import React, { useMemo } from 'react';
 import styled from 'styled-components';
 
 import { useDataContext } from '../../../../../contexts/DataContext';
@@ -36,25 +37,51 @@ const DaysWrapper = styled.div`
 
 const TodayEvent: React.FC = () => {
   const { currentEvent } = useDataContext();
-  if (!currentEvent) {
+
+  const event = useMemo(() => {
+    if (!currentEvent) {
+      return null;
+    }
+
+    const today = moment();
+    const startDate = moment.unix(currentEvent.date_start);
+    const endDate = moment.unix(currentEvent.date_end);
+    const isLastDay = endDate.diff(today, 'days') === 0;
+
+    let title = currentEvent.type;
+    let days = 0;
+
+    switch (currentEvent.type) {
+      case 'recess':
+      case 'vacation':
+        days = today.diff(startDate, 'days') + 1;
+        break;
+      default:
+        title = `Week ${today.diff(startDate, 'week') + 1}`;
+    }
+
+    return {
+      title: title.toUpperCase(),
+      days,
+      isLastDay,
+    };
+  }, [currentEvent]);
+
+  if (!currentEvent || !event) {
     return null;
   }
 
-  return !currentEvent.isBreak ? (
+  return currentEvent.type !== 'recess' && currentEvent.type !== 'vacation' ? (
     <Wrapper>
-      <h1 className="highlight">{currentEvent.title.toUpperCase()}</h1>
+      <h1 className="highlight">{event.title}</h1>
     </Wrapper>
   ) : (
     <Wrapper>
       <DaysWrapper>
-        {!currentEvent.isLastDay ? (
-          <h1>DAY {currentEvent.days}</h1>
-        ) : (
-          <h1>Last Day</h1>
-        )}
+        {!event.isLastDay ? <h1>DAY {event.days}</h1> : <h1>Last Day</h1>}
         <span>OF</span>
       </DaysWrapper>
-      <h1 className="highlight">{currentEvent.title.toUpperCase()}</h1>
+      <h1 className="highlight">{event.title.toUpperCase()}</h1>
     </Wrapper>
   );
 };

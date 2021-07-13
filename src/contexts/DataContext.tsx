@@ -12,13 +12,13 @@ import {
   CalendarProps,
   CurrentEventProps,
   ImportantDateProps,
-  SchoolYearPropsV1,
+  SchoolYearProps,
 } from '../Schema';
 import { APP_BOOKMARK_DEFAULT } from '../utils/appBookmarkDefaults';
 import { getCurrentEvent, sortEventsByDate } from './utils';
 
 interface ContextProps {
-  schoolTerms: SchoolYearPropsV1[];
+  schoolTerms: SchoolYearProps[];
   calendarEvents: CalendarProps;
   currentEvent: CurrentEventProps | null;
   appBookmarks: AppLibraryProps;
@@ -37,7 +37,7 @@ export const DataWrapper: React.FC = (props) => {
   const { children } = props;
   const [appBookmarks] = useState<AppLibraryProps>(APP_BOOKMARK_DEFAULT);
   const [appLibrary, setAppLibrary] = useState<AppLibraryProps[]>([]);
-  const [schoolTerms, setSchoolTerms] = useState<SchoolYearPropsV1[]>([]);
+  const [schoolTerms, setSchoolTerms] = useState<SchoolYearProps[]>([]);
   const [importantDates, setImportantDates] = useState<ImportantDateProps[]>(
     []
   );
@@ -52,7 +52,7 @@ export const DataWrapper: React.FC = (props) => {
   const getSchoolTerm = async () =>
     axios(`${process.env.SERVER_URL}` + '/sch_terms.json')
       .then((response) => {
-        const terms: SchoolYearPropsV1[] = response.data;
+        const terms: SchoolYearProps[] = response.data.year;
         setSchoolTerms(terms);
       })
       .catch((error) => {
@@ -61,8 +61,7 @@ export const DataWrapper: React.FC = (props) => {
 
   /** Get important dates */
   const getImportantDates = async () =>
-    // axios(`${process.env.SERVER_URL}` + '/important_dates.json')
-    axios('/temp/important_dates.json')
+    axios(`${process.env.SERVER_URL}` + '/important_dates.json')
       .then((response) => {
         const dates: ImportantDateProps[] = response.data;
         setImportantDates(dates);

@@ -1,16 +1,15 @@
-export interface SchoolYearPropsV1 {
-  '1': SchoolTermPropsV1;
-  '2': SchoolTermPropsV1;
+export interface SchoolYearProps {
+  label: string;
+  terms: SchoolTermProp[];
 }
 
-export interface SchoolTermPropsV1 {
-  startdate: string;
-  enddate: string;
-  weeks: {
-    id: string;
-    startdate: string;
-    enddate: string;
-    name: string;
+export interface SchoolTermProp {
+  type: string;
+  label: string;
+  periods: {
+    type: string;
+    date_start: string;
+    date_end: string;
   }[];
 }
 
@@ -21,10 +20,9 @@ export interface ImportantDateProps {
 }
 
 export interface CurrentEventProps {
-  title: string;
-  days: number;
-  isBreak: boolean;
-  isLastDay: boolean;
+  type: string;
+  date_start: number;
+  date_end: number;
 }
 
 export interface CalendarEventProps {
